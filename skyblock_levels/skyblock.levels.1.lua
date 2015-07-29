@@ -30,47 +30,55 @@ local feats = {
 	{
 		name = 'dig 10 Dirt',
 		hint = nil,
-		feat = 'dig_dirt', 
-		count = 10, 
+		feat = 'dig_dirt',
+		count = 10,
 		reward = 'default:stick',
 		dignode = {'default:dirt', 'default:dirt_with_grass', 'default:dirt_with_grass_footsteps'},
 	},
 	{
 		name = 'place 10 Dirt',
 		hint = 'default:dirt',
-		feat = 'place_dirt', 
-		count = 10, 
+		feat = 'place_dirt',
+		count = 10,
 		reward = 'default:leaves 6',
 		placenode = {'default:dirt'},
 	},
 	{
 		name = 'craft a Sapling and grow a Tree',
 		hint = 'default:sapling',
-		feat = 'place_sapling', 
-		count = 1, 
+		feat = 'place_sapling',
+		count = 1,
 		reward = 'default:tree',
 		placenode = {'default:sapling'},
 	},
 	{
 		name = 'craft an Axe and dig 16 Tree',
 		hint = 'default:axe_wood',
-		feat = 'dig_tree', 
-		count = 16, 
-		reward = 'default:cobble 8',
+		feat = 'dig_tree',
+		count = 16,
+		reward = 'default:stick 5',
 		dignode = {'default:tree'},
+	},
+	{
+		name = 'craft a craft guide',
+		hint = 'skyblock_craft_guide:craft_guide',
+		feat = 'place_craft_guide',
+		count = 1,
+		reward = 'default:cobble 8',
+		placenode = {'skyblock_craft_guide:craft_guide'},
 	},
 	{
 		name = 'craft and place a Furnace',
 		hint = 'default:furnace',
-		feat = 'place_furnace', 
-		count = 1, 
+		feat = 'place_furnace',
+		count = 1,
 		reward = 'default:axe_steel',
 		placenode = {'default:furnace'},
 	},
 	{
 		name = 'craft and place 50 Cobblestone',
 		hint = 'default:cobble',
-		feat = 'place_cobble', 
+		feat = 'place_cobble',
 		count = 50,
 		reward = 'default:stair_cobble 4',
 		placenode = {'default:furnace'},
@@ -79,7 +87,7 @@ local feats = {
 		name = 'craft and place a Chest',
 		hint = 'default:chest',
 		feat = 'place_chest',
-		count = 1, 
+		count = 1,
 		reward = 'default:papyrus 5',
 		placenode = {'default:chest'},
 	},
@@ -143,7 +151,7 @@ skyblock.levels[level].get_info = function(player_name)
 	end
 
 	info.infotext = 'LEVEL '..info.level..' for '..info.player_name..': '..info.count..' of '..info.total
-	
+
 	return info
 end
 
@@ -173,7 +181,7 @@ skyblock.levels[level].bucket_on_use = function(player_name, pointed_thing)
 end
 
 -- track bucket water feats
-skyblock.levels[level].bucket_water_on_use = function(player_name, pointed_thing) 
+skyblock.levels[level].bucket_water_on_use = function(player_name, pointed_thing)
 	skyblock.levels.bucket_water_on_use(level, feats, player_name, pointed_thing)
 end
 
